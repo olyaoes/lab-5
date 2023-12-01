@@ -2,11 +2,15 @@ from enum import Enum
 import math
 
 class Point:
-    def init(self, x, y):
+    """Represents a point in a 2-dimensional space."""
+    
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 
-    def repr(self):
+    def __repr__(self):
+        """Returns a string representation of the Point object."""
+        
         return f"Point({self.x}, {self.y})"
 
 class Color(Enum):
@@ -15,14 +19,20 @@ class Color(Enum):
     BLUE = 3
 
 class Polynom:
-    def init(self, points, color):
+    """Represents a polygon with points and a color."""
+
+    def __init__(self, points, color):
         self.points = points
         self.color = color
 
-    def repr(self):
+    def __repr__(self):
+        """Returns a string representation of the Polynom object."""
+
         return f"Polynom({self.points}, {self.color})"
 
     def perimeter(self):
+        """Calculates the perimeter of the polygon. Returns 0 if there are less than 2 points."""
+
         if len(self.points) < 2:
             return 0
 
@@ -36,6 +46,8 @@ class Polynom:
         return perimeter
 
     def longest_diagonal(self):
+        """Finds the longest diagonal in the set of points."""
+
         if len(self.points) < 2:
             return 0
 
@@ -53,7 +65,7 @@ class Polynom:
     def sort_by_y(self):
         self.points.sort(key=lambda point: point.y)
 
-if name == "main":
+if __name__ == "__main__":
     point1 = Point(0, 0)
     point2 = Point(1, 0)
     point3 = Point(1, 1)
